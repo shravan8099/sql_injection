@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SQL Injection Demo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  <link rel="shortcut icon" type="image/jpg" href="{% static 'sql_demo/images/apple-touch-icon.png' %}">
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+  </style>
+</head>
+<body>
+<div style="background-color: #f2f2f2;">
+    <div class="container text-center" >
+        <h2>SQL Injection Demo</h2>
+    </div>
+</div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="{% if page == 'main' %}active{% endif %}"><a href="{% if page != 'main' %}{% url 'main' %}{% endif %}">Home</a></li>
+        <li class="{% if page == 'solution1' %}active{% endif %}"><a href="{% if page != 'solution1' %}{% url 'solution1' %}{% endif %}">Solution1</a></li>
+        <li class="{% if page == 'solution2' %}active{% endif %}"><a href="{% if page != 'solution2' %}{% url 'solution2' %}{% endif %}">Solution2</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% block body %}{% endblock %}  
+
+<footer class="container-fluid text-center">
+  <p>Copyright © 2022 Team Group 14</p>
+</footer>
+{% block site_scripts %}{% endblock %}
+</body>
+</html>
